@@ -1,0 +1,63 @@
+// Chatterbot Configuration File
+//
+// This file represents a single chatterbot. A chatterbot in this context
+// refers to one bot that has its own unique name and personality (including
+// reply base). One chatterbot may have multiple connections to multiple
+// listeners. This means you only need multiple chatterbots if you are running
+// multiple distinct personalities.
+
+// NOTE: JSON files normally aren't allowed to include comment lines. This is
+// a 'hack' supported by the config file loader in this app. Comments are
+// allowed ONLY when used on a line all by itself.
+
+{
+    // Personality information
+    "name": "Aiden",
+
+    // Brain configuration.
+    "brain": {
+        "name": "RiveScript",
+        "args": {
+            "replies": "./replies/aiden"
+        }
+    },
+
+    // This bot's listeners. Listeners are the individual connections to
+    // instant messengers or other interfaces.
+    "listeners": {
+        "AIM": {
+            "active": false,
+            "icon": "./res/aim/icons/default.jpg",
+            "profile": "./res/aim/profiles/default.html",
+            "font": [
+                "<html><body bgcolor='#FFFFFF' link='#FF0000'><font face='Verdana' size='2' color='#0099FF'>",
+                // Bot's reply goes here, in between these two elements :)
+                "</font></body></html>"
+            ],
+
+            "mirrors": [
+                { "username": "SampleAIM", "password": "B1g_S3cr3t" }
+            ]
+        },
+
+        "XMPP": {
+            "active": false,
+            "resource": "Aires-bot",
+            "nickname": "Sample Bot",
+            "mirrors": [
+                { "username": "example@jabber.org", "password": "B1g_S3cr3t" }
+            ]
+        },
+
+        "CLI": {
+            "active": true,
+            "mirrors": [
+                // Here, username is just what is displayed as the bot's
+                // answer prompt when it replies to your message.
+                { "username": "Aiden" }
+            ]
+        }
+    }
+}
+
+// vim:syntax=javascript
